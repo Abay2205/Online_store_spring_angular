@@ -1,0 +1,26 @@
+{
+  "/back1": {
+    "target": "http://localhost:8000/",
+    "secure": "false",
+    "timeout": 36000000,
+    "changeOrigin": true
+  },
+  "/back2": {
+    "target": "http://localhost:8000/",
+    "secure": "false",
+    "timeout": 36000000,
+    "changeOrigin": true
+  } ,
+  "/back3": {
+    "target": "http://localhost:8000/",
+    "secure": "false",
+    "timeout": 36000000,
+    "changeOrigin": true
+  },
+  "/zuul": {
+    "target": "http://localhost:8000/",
+    "secure": "false",
+    "timeout": 36000000,
+    "changeOrigin": true
+  }
+}

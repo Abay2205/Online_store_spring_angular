@@ -1,0 +1,73 @@
+<div class="container">
+  <input type="text"
+         class="form-control"
+         style="margin-bottom: 10px; width: 100%"
+         placeholder="Search product... //front"
+         [(ngModel)]="searchText"
+  />
+  <div style="display: flex; align-items: center; margin-bottom: 10px">
+
+    <input type="text"
+           [(ngModel)]="searchText2"
+           class="form-control"
+           style="width: 100%"
+           placeholder="Search product... //back">
+    <button (click)="searchProducts(searchText2)"
+            class="btn btn-info">submit</button>
+  </div>
+  <div style="display: flex">
+  <div class="dropdown" style="margin-bottom: 10px; margin-right: 10px">
+    <button style="width: 200px" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Product Type
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><button (click)="searchProducts('Smartphone')" class="btn btn-secondary" style="width: 100%">Smartphone</button></li>
+      <li><button (click)="searchProducts('Fridge')" class="btn btn-secondary" style="width: 100%">Fridge</button></li>
+      <li><button (click)="searchProducts('Notebook')" class="btn btn-secondary" style="width: 100%">Notebook</button></li>
+      <li><button (click)="searchProducts('')" class="btn btn-danger" style="width: 100%">Back</button></li>
+    </ul>
+  </div>
+  <div class="dropdown" style="margin-bottom: 10px; margin-right: 10px">
+    <button style="width: 200px" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+      Product Model
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><button (click)="searchProducts('Iphone')" class="btn btn-secondary" style="width: 100%">Iphone</button></li>
+      <li><button (click)="searchProducts('Samsung')" class="btn btn-secondary" style="width: 100%">Samsung</button></li>
+      <li><button (click)="searchProducts('Oppo')" class="btn btn-secondary" style="width: 100%">Oppo</button></li>
+      <li><button (click)="searchProducts('')" class="btn btn-danger" style="width: 100%">Back</button></li>
+    </ul>
+  </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="text-center">Products list</h3>
+      <table class="table table=striped">
+        <thead>
+        <th style={cursor:pointer} (click)="sortProduct('id')">Product id</th>
+        <th style={cursor:pointer} (click)="sortProduct('productName')">Product name</th>
+        <th style={cursor:pointer} (click)="sortProduct('productType')">Type</th>
+        <th style={cursor:pointer} (click)="sortProduct('productModel')">Model</th>
+        <th style={cursor:pointer} (click)="sortProduct('productNumber')">Number</th>
+        <th style={cursor:pointer} (click)="sortProduct('productPrice')">Price</th>
+        <th>Actions</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of products | textFilter: searchText">
+          <td>{{product.id}}</td>
+          <td>{{product.productName}}</td>
+          <td>{{product.productType}}</td>
+          <td>{{product.productModel}}</td>
+          <td>{{product.productNumber}}</td>
+          <td>{{product.productPrice}}</td>
+          <td>
+            <button (click)="updateProduct(product.id)" class="btn btn-info" style="margin-right: 5px">Update</button>
+            <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

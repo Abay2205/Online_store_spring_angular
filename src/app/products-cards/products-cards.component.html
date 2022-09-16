@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="card col-md-3" *ngFor="let product of products | textFilter: searchText">
+      <div class="product">
+        <div class="image">
+          <img [src]="('/zuul/back3/back3/photo/download/' + product.productImageId  | secure) | async" alt="..." >
+        </div>
+        <div class="info">
+          <h3>{{product.productName}}</h3>
+          <ul class="rating">
+            <li>
+              <ion-icon name="star"></ion-icon>
+            </li>
+            <li>
+              <ion-icon name="star"></ion-icon>
+            </li>
+            <li>
+              <ion-icon name="star"></ion-icon>
+            </li>
+            <li>
+              <ion-icon name="star"></ion-icon>
+            </li>
+            <li>
+              <ion-icon name="star-half-outline"></ion-icon>
+            </li>
+          </ul>
+          <div class="info-price">
+            <span class="price">{{product.productPrice}}</span>
+            <button class="add-to-cart">
+              <ion-icon name="cart-outline"></ion-icon>
+            </button>
+          </div>
+          <button (click)="updateProduct(product.id)" class="btn btn-info" style="margin-right: 5px">Update</button>
+          <button (click)="deleteProduct(product.id)" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

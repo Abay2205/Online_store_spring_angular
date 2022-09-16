@@ -1,0 +1,17 @@
+<div class="container">
+  <form class="form-signin" method="post" action="/login">
+    <h2 class="form-signin-heading">Please sign in!!!!!</h2>
+    <p>
+      <input type="text" name="username" class="form-control" placeholder="Username" [(ngModel)]="username" required="" autofocus="">
+    </p>
+    <p>
+      <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="password" required="">
+    </p>
+    <p>
+      <input type="checkbox" id="remember-me" name="remember-me" class="form-control" required="">
+    </p>
+    <button class="btn btn-lg btn-primary btn-block" (click)="login({username: username, password: password})" type="submit">Login</button>
+
+    </form>
+
+</div>
